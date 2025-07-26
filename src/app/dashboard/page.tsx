@@ -220,11 +220,11 @@ export default function Dashboard() {
         setAllFeed([]);
         if (userPreferences) {
             fetchAllFeeds(userPreferences, 1, true);
+            if (!userPreferences) return 0;
         }
     };
 
     const getEnabledSourceCount = () => {
-        if (!userPreferences) return 0;
         return Object.values(userPreferences).filter((pref: any) => pref?.enabled).length;
     };
 
